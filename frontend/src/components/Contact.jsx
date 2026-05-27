@@ -15,8 +15,11 @@ export default function Contact() {
       await submitLead({ ...data, source: 'contact_section' })
       toast.success('Your enquiry has been submitted! We\'ll call you shortly.')
       reset()
-    } catch {
-      toast.warning('Demo mode — form captured locally.')
+    // } catch {
+    //   toast.warning('Demo mode — form captured locally.')
+    }catch (error) {
+      console.error(error)
+      toast.error('Failed to submit enquiry.')
     } finally {
       setLoading(false)
     }

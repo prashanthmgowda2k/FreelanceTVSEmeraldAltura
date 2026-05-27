@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #C9A227;
+  --gold-light: #E8C96A;
+  --forest-dark: #0F1F0F;
+  --forest: #1A2E1A;
+  --cream: #F5F0E8;
+  --cream-dark: #EDE5D4;
+  --text-dark: #1C1C1C;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-dark);
+  background: #fff;
+  overflow-x: hidden;
+}
+
+/* ── Gold gradient text ── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A227 0%, #E8C96A 50%, #C9A227 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section title underline ── */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin-top: 12px;
+}
+.section-title.center::after {
+  margin: 12px auto 0;
+}
+
+/* ── CTA button ── */
+.btn-gold {
+  background: linear-gradient(135deg, #C9A227, #E8C96A);
+  color: #0F1F0F;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,162,39,0.4);
+}
+
+.btn-outline-gold {
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  padding: 13px 32px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.btn-outline-gold:hover {
+  background: var(--gold);
+  color: #0F1F0F;
+}
+
+/* ── Scroll fade-up animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* ── Sticky nav shadow on scroll ── */
+.nav-scrolled {
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  background: rgba(15,31,15,0.97) !important;
+}
+
+/* ── Form input style ── */
+.form-input {
+  width: 100%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(201,162,39,0.3);
+  border-radius: 2px;
+  padding: 12px 16px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-input::placeholder { color: rgba(255,255,255,0.4); }
+.form-input:focus { border-color: var(--gold); }
+
+/* Ensure select text and option list are readable on dark form backgrounds */
+.form-input select {
+  color: #fff;
+}
+.form-input option {
+  color: #0F1F0F;
+  background: #fff;
+}
+
+.form-input-light {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 12px 16px;
+  color: #1C1C1C;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-input-light:focus { border-color: var(--gold); }
+
+/* ── Modal overlay ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ── Amenity card hover ── */
+.amenity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+/* ── Config card ── */
+.config-card {
+  border: 1px solid #e8e0d0;
+  transition: all 0.3s ease;
+}
+.config-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 32px rgba(201,162,39,0.15);
+  transform: translateY(-4px);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ── Floating CTA on mobile ── */
+.floating-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: none;
+}
+@media (max-width: 768px) {
+  .floating-cta { display: flex; }
+}
